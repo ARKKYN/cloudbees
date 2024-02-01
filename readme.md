@@ -28,3 +28,10 @@ chmod +X ./genproto.sh
 ./genproto.sh
 
 ```
+
+To test the code
+
+```
+go test
+
+```
