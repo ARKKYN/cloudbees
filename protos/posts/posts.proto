@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option go_package = "./posts";
+
+package posts;
+
+message CreatePostRequest {
+  uint64 post_id = 1;
+  string title = 2;
+  string content = 3;
+  string author = 4;
+  string publication_date = 5;
+  repeated string tags = 6;
+}
+
+message GetPostRequest {
+  uint64 post_id = 1;
+}
+
+message PostResponse {
+  uint64 post_id = 1;
+  string title = 2;
+  string content = 3;
+  string author = 4;
+  string publication_date = 5;
+  repeated string tags = 6;
+}
+
+message UpdatePostRequest {
+  uint64 post_id = 1;
+  string title = 2;
+  string content = 3;
+  string author = 4;
+  string publication_date = 5;
+  repeated string tags = 6;
+}
+
+
+
+message DeletePostRequest {
+  uint64 post_id = 1;
+}
+
+message DeletePostResponse {
+  string message = 1;
+}
+
+service BlogService {
+  rpc CreatePost(CreatePostRequest) returns (PostResponse);
+  rpc GetPost(GetPostRequest) returns (PostResponse);
+  rpc UpdatePost(UpdatePostRequest) returns (PostResponse);
+  rpc DeletePost(DeletePostRequest) returns (DeletePostResponse);
+}
+
